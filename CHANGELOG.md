@@ -8,4 +8,11 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Added
+
+- `bbb-stress-client` to simulate a BBB user
+- `bbb-list-meetings` to list the current running meetings on a BBB instance
+- `start-bbb-client` to generate random username and fake audio input
+- `stress-test.sh` to initialize the stress test
+
 [Unreleased]: https://github.com/openfun/bbb-stress-test

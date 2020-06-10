@@ -1,0 +1,27 @@
+
+
+version: '3.3'
+services:
+  listen-only:
+    image: fundocker/bbb-stress-test:latest
+    env_file:
+      - .env
+    environment:
+      - BBB_ENABLE_MICROPHONE=false
+      - BBB_ENABLE_WEBCAM=false
+
+  mic-only:
+    image: fundocker/bbb-stress-test:latest
+    env_file:
+      - .env
+    environment:
+      - BBB_ENABLE_MICROPHONE=true
+      - BBB_ENABLE_WEBCAM=false
+
+  webcam-mic:
+    image: fundocker/bbb-stress-test:latest
+    env_file:
+      - .env
+    environment:
+      - BBB_ENABLE_MICROPHONE=true
+      - BBB_ENABLE_WEBCAM=true

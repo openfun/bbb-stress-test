@@ -1,0 +1,47 @@
+#!/bin/bash
+
+ENABLE_WEBCAM="";
+if [ "${BBB_ENABLE_WEBCAM:-"true"}" = "true" ]
+then
+   ENABLE_WEBCAM="-w";
+fi
+
+# Generate an username
+BBB_USER_NAME="$(sort -R /usr/local/share/names | head -n 1)$(( $RANDOM % 100))"
+echo "Generated username : ${BBB_USER_NAME}"
+
+TEST_DURATION="${BBB_TEST_DURATION:-60}"
+
+# Utility functions to generate SSML code
+pause()
+{
+  echo "<break time=\"$(( $1 ))s\" />"
+}
+rand_pause()
+{
+  MAX=${1:-5}
+  pause $(( $RANDOM % $MAX ))
+}
+
+
+ENABLE_MICROPHONE="";
+if [ "${BBB_ENABLE_MICROPHONE:-"true"}" = "true" ]
+then
+  # Generate input text
+  INPUT_TXT=/tmp/audio-input.txt
+  INPUT_WAV=/tmp/audio-input.wav
+  echo "Generating random text for speaker..."
+  echo "Hi. $(pause 5) Hello $(rand_pause 3) My name is ${BBB_USER_NAME}. $(rand_pause 10)" > "${INPUT_TXT}"
+  /usr/games/fortune -l >> "${INPUT_TXT}"
+
+  # Generate audio input from text with a random english voice
+  echo "Generating fake audio input..."
+  VOICE=$(espeak --voices=en | grep -v "mb/" | tail -n +2 | awk '{print $5}' | sort -R | head -n 1)
+  WORD_PER_MINUTE=$(( $RANDOM % 40 + 100))
+  espeak -v "${VOICE}" -s "${WORD_PER_MINUTE}" -w "${INPUT_WAV}" -m -f "${INPUT_TXT}"
+  ENABLE_MICROPHONE="-a ${INPUT_WAV}"
+fi
+
+
+echo "Starting bbb-stress-client in a virtual framebuffer"
+xvfb-run -a --server-args="-screen 0 1920x1080x24" bbb-stress-client -s "${BBB_URL}" -p "${BBB_SECRET}" -i "${BBB_MEETING_ID}" -d "${TEST_DURATION}" -u "${BBB_USER_NAME}" ${ENABLE_WEBCAM} ${ENABLE_MICROPHONE}
