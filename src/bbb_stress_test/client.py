@@ -36,7 +36,7 @@ def init_browser(args):
 
 
 def join_bbb_meeting(args, browser, join_url):
-    """Control the browser to joint the meeting."""
+    """Control the browser to join the meeting."""
 
     selenium_timeout = 60
 

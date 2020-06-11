@@ -17,8 +17,6 @@ COPY ./src/bbb_stress_test /builder/src/bbb_stress_test/
 RUN mkdir /install && \
     pip install --prefix=/install .
 
-RUN ls -lR /install
-
 # ---- Core application image ----
 FROM base as core
 
