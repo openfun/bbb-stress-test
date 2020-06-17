@@ -1,0 +1,27 @@
+# JS
+*.md
+*.log
+**/node_modules
+
+# System-specific files
+.DS_Store
+**/.DS_Store
+
+# Docker
+docker-compose.*
+env.d
+.env*
+
+# Docs
+docs
+*.md
+*.log
+
+# Development/test cache & configurations
+.cache
+.circleci
+.git
+.vscode
+.idea
+.mypy_cache
+

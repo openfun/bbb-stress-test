@@ -1,0 +1,35 @@
+{
+  "name": "bbb-stress-test",
+  "version": "1.0.0",
+  "description": "BigBlueButton stress test",
+  "scripts": {
+    "prettier": "prettier --list-different '**/*.+(ts|tsx|json|js|jsx)' --ignore-path '../.prettierignore'",
+    "prettier-write": "prettier --write '**/*.+(ts|tsx|json|js|jsx)' --ignore-path '../.prettierignore'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openfun/bbb-stress-test.git"
+  },
+  "keywords": [
+    "bigbluebutton",
+    "load",
+    "stress",
+    "testing"
+  ],
+  "author": "OpenFun",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openfun/bbb-stress-test/issues"
+  },
+  "homepage": "https://github.com/openfun/bbb-stress-test#readme",
+  "dependencies": {
+    "bigbluebutton-js": "0.0.7",
+    "lodash": "4.17.15",
+    "puppeteer": "4.0.0",
+    "winston": "3.2.1",
+    "yargs": "15.3.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
