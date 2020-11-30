@@ -61,8 +61,8 @@ list-meetings: ## List meetings running on the BBB server
 
 bootstrap: ## Prepare Docker images for the project
 bootstrap: \
-	build \
-	.env
+	.env \
+	build
 .PHONY: bootstrap
 
 # -- Build tools
