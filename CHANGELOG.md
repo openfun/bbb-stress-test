@@ -16,5 +16,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - handle echo test dialog when microphone is active
+- invalid mute status when microphone is active
 
 [Unreleased]: https://github.com/openfun/bbb-stress-test
