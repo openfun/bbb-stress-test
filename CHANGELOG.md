@@ -13,4 +13,8 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 - `cli.js list-meeting` command to list the meetings running on a BBB instance
 - `cli.js stress` command to start a stress test on a BBB server
 
+### Fixed
+
+- handle echo test dialog when microphone is active
+
 [Unreleased]: https://github.com/openfun/bbb-stress-test
