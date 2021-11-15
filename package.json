@@ -24,7 +24,7 @@
   "homepage": "https://github.com/openfun/bbb-stress-test#readme",
   "dependencies": {
     "bigbluebutton-js": "0.0.7",
-    "lodash": "4.17.15",
+    "lodash": "4.17.21",
     "puppeteer": "4.0.0",
     "winston": "3.2.1",
     "yargs": "15.3.1"

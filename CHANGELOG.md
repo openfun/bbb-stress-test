@@ -17,5 +17,6 @@ Versioning](https://semver.org/spec/v2.0.0.html).
 
 - handle echo test dialog when microphone is active
 - invalid mute status when microphone is active
+- autoShareWebcam setting detected
 
 [Unreleased]: https://github.com/openfun/bbb-stress-test
